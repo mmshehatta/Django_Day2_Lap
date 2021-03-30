@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- we can build form by own or we can user Django form  -->
+<!-- that provides us with power of validation on input field and form helpers and  more than this -->
+<!-- url(url name as create ) -->
+<div class="jumbotron">
+    <h1>Adding new article </h1>
+    <form method="POST" action="{% url  'create' %}">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit" class="btn-primary"> add aritcle </button>
+    </form>
+</div>
+{% endblock %}

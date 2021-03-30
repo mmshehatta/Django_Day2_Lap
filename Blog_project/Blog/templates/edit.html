@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- we can build form by own or we can user Django form  -->
+<!-- that provides us with power of validation on input field and form helpers and  more than this -->
+<!-- url(url name as create ) -->
+<div class="jumbotron">
+    <h1>Edit article </h1>
+    <form method="POST" action="">
+        {% csrf_token %}
+
+<!-- i  try this lines to render data to edit it but not work fine...By Mahmoud Shehata -->
+        <!-- {{ArticleForm.cover_photo}} {{ArticleModel.cover_photo}}
+        <br><br>
+        {{ArticleForm.title}}   {{ArticleModel.title}}
+        <br><br>
+        {{ArticleForm.body}}{{ArticleModel.body}}   
+        <br> -->
+     <!-- lines end  -->
+     <!-- but the bellow is working fine -->
+     current is : {{ArticleModel.cover_photo}} <br>
+        <input type="file" name="cover_photo" accept="image/*" id="id_cover_photo" value="{{ArticleModel.cover_photo}}">
+        <br><br>
+        <input type="text" name="title" maxlength="100" required="" id="id_title" value="{{ArticleModel.title}}">
+        <br><br>
+        <textarea name="body" cols="40" rows="10" maxlength="1000" required=""
+            id="id_body">{{ArticleModel.body}}</textarea>
+        <br><br>
+        <button type="submit" class="btn-primary"> Update aritcle </button>
+    </form>
+</div>
+{% endblock %}

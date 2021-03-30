@@ -1,0 +1,12 @@
+
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form action="{% url 'users:register' %}">
+{{RegisterForm.as_p}}
+
+</form>
+
+{% endblock %}
